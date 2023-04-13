@@ -1,0 +1,3 @@
+setup all rooms
+look command
+add itemsList variable to rooms
