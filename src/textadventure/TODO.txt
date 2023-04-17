@@ -1,3 +1,7 @@
 setup all rooms
-look command
-add itemsList variable to rooms
+add itemsList variable to rooms (at least 5)
+language parser
+quest to win
+way to lose
+inventory
+player class (andrew doing rn)
