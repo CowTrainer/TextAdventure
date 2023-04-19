@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 class Room {
-	private ArrayList<String> itemList;
+	ArrayList<String> itemList = new ArrayList<>();
     private String name;
     private String description;
     private String n, s, e, w;
@@ -15,13 +15,16 @@ class Room {
         this.description = description;
     }
 
-    private void setExits(String n, String s, String e, String w) {
+    void setExits(String n, String s, String e, String w) {
         this.n = n;
         this.s = s;
         this.e = e;
         this.w = w;
     }
-
+    
+    void setDesc (String desc) {
+    	description = desc;
+    }
     String getExit(char direction) {
         switch (direction) {
             case 'n': return n;
@@ -31,7 +34,7 @@ class Room {
         }
         return null;
     }
-
+    
     String getName() {
         return this.name;
     }
@@ -40,20 +43,34 @@ class Room {
         return this.description;
     }
     
+    
+    
 
     static void setRooms(HashMap<String, Room> map) {
-        Room room = new Room("Detention Room", "Delinquent students are left for self reflection in this isolated space. There is nothing here except an old dusty carpet, and a large closet of left over supplies. The office is located to the east.");
-        room.setExits("", "", "office", "");
+        Room room = new Room("Detention Room", "Delinquent students are left for self reflection in this isolated space. The office is located to the east, but behind a locked door");
+        room.setExits("", "", "", "");
         map.put("detention", room);
 
-        room = new Room("Office", "Office space for staff and teachers to work. Various items are scattered on the table.");
+        room = new Room("Office", "Office space for staff and teachers to work.");
         room.setExits("hallway", "", "", "");
         map.put("office", room);
 
         room = new Room("Hallway", "Main hallway of the school's ground floor, connecting the cafeteria and the main entrance. A stairwell is up ahead.");
-        room.setExits("stair", " office", "caf", "entrance");
+        room.setExits("stair", "office", "caf", "hallway2");
         map.put("hallway", room);
-
+        
+        room = new Room("Hallway", "School Hallway. There is another hallway to the east, the main entrance to the west. There are rooms to the north and south");
+        room.setExits("grammar", "art", "hallway", "entrance");
+        map.put("hallway2", room);
+        
+        room = new Room("Grammar Club", "Normal classroom lined with writings of madmen. On the whiteboard there are various writings containing lie and lay");
+        room.setExits("", "hallway2", "", "");
+        map.put("grammar", room);
+        
+        room = new Room("Art Room", "Pieces of art are plastered across the room. The easels are laid in a circle around the centre");
+        room.setExits("hallway2", "", "", "");
+        map.put("art", room);
+        
         room = new Room("Stairwell", "Stairs headed up to the second floor. However the doors are locked.");
         room.setExits("", "hallway", "", "");
         map.put("stair", room);
@@ -66,8 +83,8 @@ class Room {
         room.setExits("caf", "", "", "");
         map.put("fire", room);
 
-        room = new Room("Main Entrance", "You see the front lawn through the doors of the main foyer. Freedom is so close. Yet the doors are locked.");
-        room.setExits("", "", "hallway", "");
+        room = new Room("Main Entrance", "You see the front lawn through the doors of the main foyer. Freedom is so close. Yet the doors are locked.\n A small dent can be seen near the hinge of the door");
+        room.setExits("", "", "hallway2", "");
         map.put("entrance", room);
     }
 }

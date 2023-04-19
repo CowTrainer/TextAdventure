@@ -1,9 +1,9 @@
 package textadventure;
 
 public class Player {
-<<<<<<< HEAD
-
-=======
-    
->>>>>>> master
+	final String name;
+    boolean sandwichBuff = false;
+    Player(String name) {
+        this.name = name;
+    }
 }
