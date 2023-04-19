@@ -1,8 +1,10 @@
 package textadventure;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 class Room {
+	private ArrayList<String> itemList;
     private String name;
     private String description;
     private String n, s, e, w;
@@ -36,6 +38,7 @@ class Room {
     String getDescription() {
         return this.description;
     }
+    
 
     static void setRooms(HashMap<String, Room> map) {
         Room room = new Room("Hallway", "This is the hallway");

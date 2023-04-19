@@ -1,12 +1,25 @@
 package textadventure;
 
 import java.util.Scanner;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class MainGame {
+	
     static HashMap<String, Room> roomMap = new HashMap<>();
+    static HashMap<String, Item> itemMap = new HashMap<String,Item>();
     static String curRoom;
     static boolean isPlaying = true;
+     //list of all item objects
+	//These hashmaps could also be in the Room and Item class if it's more convenient to create them there. They would have to be static though.
+
+	//the inventory could be an array
+	ArrayList<String> inventory = new ArrayList<String>();
+	String currentRoom;
+	Player player;
+	
+	int turns = 0;
+
 
 	public static void main(String[] args) {
 
