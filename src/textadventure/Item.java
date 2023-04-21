@@ -50,7 +50,7 @@ public class Item {
 	     
 	     i = new Item("Key");
 	     i.examineText = "A shiny key, looks like it could be used somewhere";
-	     i.roomText = "A key on the ground";
+	     i.roomText = "There is a shiny key on the ground";
 	     itemList.put("key", i);
 	}
 	

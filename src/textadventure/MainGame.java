@@ -13,15 +13,12 @@ public class MainGame {
     static boolean isPlaying = true;
     static int turnCounter = 0;
 	static Player player = new Player("Bobert");
-	
-	int turns = 0;
 
 
 	public static void main(String[] args) {
         setup();
 		
         while (isPlaying) {
-
             String command = getCommand().toLowerCase().trim();
             if (command.length() == 0) 
             	continue;
@@ -47,7 +44,7 @@ public class MainGame {
                 	if(curRoom.equals("entrance"))
                 	{
 	                	if (inventory.contains("hammer") && word2.equals("hammer")) {
-	                		System.out.println("You swing your hammer at the door with great force, loosening the door slightly from it's hinges. Your hammer immediately breaks");
+	                		System.out.println("You swing your hammer at the door with great force, loosening the door slightly from it's hinges. Your hammer immediately breaks.");
 	                		inventory.remove("hammer");
 	                	}
 	                	if (inventory.contains("sledgehammer") && word2.equals("sledgehammer")) {
@@ -57,7 +54,7 @@ public class MainGame {
 		                		System.exit(0);
 	                		}
 	                		else {
-	                			System.out.println("You lift your sledgehammer up to swing it, but you are tired and deprived of energy, and thus unable to swing. Maybe you should get some refreshments");
+	                			System.out.println("You lift your sledgehammer up to swing it, but you are tired and deprived of energy, and thus unable to swing. Maybe you should get some refreshments.");
 	                		}
 	                	}
 	                	
@@ -79,7 +76,7 @@ public class MainGame {
                 	break;
                 case "eat":
                 	if(inventory.contains("sandwich") && word2.equals("sandwich")) {
-                		System.out.println("You suffer through the sandwich. You now feel much more energized");
+                		System.out.println("You suffer through the sandwich. You now feel much more energized.");
                 		inventory.remove("sandwich");
                 		player.sandwichBuff = true;
                 	}
@@ -91,8 +88,7 @@ public class MainGame {
                     System.out.println("**Invalid command**");
                     break;
             }
-	
-	            checkGameOver();
+	        checkGameOver();
         }
 	}
 
@@ -153,7 +149,7 @@ public class MainGame {
     
     static void unlockDoor() {
     	if(inventory.contains("key")) {
-    		System.out.println("You turn the key, opening the door. The key breaks off as soon as you finishing unlocking it");
+    		System.out.println("You turn the key, opening the door. The key breaks off as soon as you unlock it");
     		inventory.remove("key");
     		roomMap.get("detention").itemList.remove("key");
     		roomMap.get("detention").setDesc("Delinquent students are left for self reflection in this isolated space. The office is located to the east, behind an unlocked door");
@@ -163,7 +159,7 @@ public class MainGame {
     
     
     static void showInventory() {
-    	 System.out.println("\n-------------------------------------------------------------------------------");
+    	 System.out.println("Inventory\n-------------------------------------------------------------------------------");
          for (int i = 0; i < inventory.size(); ++i) {
              System.out.println(inventory.get(i));
          }
@@ -180,7 +176,7 @@ public class MainGame {
             return;
         }
         if (!r.itemList.contains(itemName)) {
-            System.out.println("No" + itemName + " exists");
+            System.out.println("No " + itemName + " exists");
             return;
         }
         r.itemList.remove(itemName);
@@ -195,7 +191,8 @@ public class MainGame {
             System.exit(0);
         }
 
-        if (turnCounter == 20) {
+        if (turnCounter == 20 && !player.sandwichBuff) {
+        	System.out.println("--------------------------------------------------------------------------------------------");
             System.out.println("You pulled an all-nighter studying last night, and haven't ate anything since. You fainted.");
             System.out.println("MISSION FAILED");
             System.exit(0);

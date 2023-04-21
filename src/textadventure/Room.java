@@ -51,8 +51,8 @@ class Room {
         room.setExits("", "", "", "");
         map.put("detention", room);
 
-        room = new Room("Office", "Office space for staff and teachers to work.");
-        room.setExits("hallway", "", "", "");
+        room = new Room("Office", "Office space for staff and teachers to work. There is a hallway to the north");
+        room.setExits("hallway", "", "", "detention");
         map.put("office", room);
 
         room = new Room("Hallway", "Main hallway of the school's ground floor, connecting the cafeteria and the main entrance. A stairwell is up ahead.");
@@ -83,7 +83,7 @@ class Room {
         room.setExits("caf", "", "", "");
         map.put("fire", room);
 
-        room = new Room("Main Entrance", "You see the front lawn through the doors of the main foyer. Freedom is so close. Yet the doors are locked.\n A small dent can be seen near the hinge of the door");
+        room = new Room("Main Entrance", "You see the front lawn through the doors of the main foyer. Freedom is so close. Yet the doors are locked.\nA small dent can be seen near the hinge of the door");
         room.setExits("", "", "hallway2", "");
         map.put("entrance", room);
     }
