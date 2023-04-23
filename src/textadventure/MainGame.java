@@ -37,7 +37,7 @@ public class MainGame {
                 case "look":
                     showRoom();
                     break;
-                case "take":
+                case "take": case "pick":
                 	takeItem(word2);
                 	break;
                 case "swing":
@@ -65,7 +65,7 @@ public class MainGame {
                 	lookItem(word2);
                 	break;
                 	
-                case "move":
+                case "move": case "left":
                 	if(word2.equals("carpet"))
                 		moveCarpet();
                 	break;
