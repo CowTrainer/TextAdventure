@@ -65,7 +65,7 @@ public class MainGame {
                 	lookItem(word2);
                 	break;
                 	
-                case "move": case "left":
+                case "move": case "lift":
                 	if(word2.equals("carpet"))
                 		moveCarpet();
                 	break;
