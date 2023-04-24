@@ -13,8 +13,6 @@ public class Item {
 	int strength = 0;
 	boolean isCarryable = true;
 	boolean containsItem = false;
-	boolean isDoor = false;
-	boolean isOpen = false;
 	
 	Item(String examineText) {
 		this.examineText = examineText;

@@ -30,8 +30,8 @@ public class MainGame {
             if (words.length >= 2) 
                 word2 = words[1];
             switch (word1) {
-                case "n": case "s": case "e": case "w":
-                case "north": case "south": case "east": case "west":
+                case "n": case "s": case "e": case "w": case "u": case "d":
+                case "north": case "south": case "east": case "west": case "up": case "down":
                     moveToRoom(word1.charAt(0));
                     break;
                 case "look":
@@ -43,22 +43,28 @@ public class MainGame {
                 case "swing":
                 	if(curRoom.equals("entrance"))
                 	{
-	                	if (inventory.contains("hammer") && word2.equals("hammer")) {
-	                		System.out.println("You swing your hammer at the door with great force, loosening the door slightly from it's hinges. Your hammer immediately breaks.");
-	                		inventory.remove("hammer");
-	                	}
-	                	if (inventory.contains("sledgehammer") && word2.equals("sledgehammer")) {
-	                		if(player.sandwichBuff) {
-		                		System.out.println("You swing your sledgehammer at the door with great force, tearing the door from it's hinges. The light flows in from the outside. You are finally free");
-		                		System.out.println("YOU WIN!");
-		                		System.exit(0);
-	                		}
-	                		else {
-	                			System.out.println("You lift your sledgehammer up to swing it, but you are tired and deprived of energy, and thus unable to swing. Maybe you should get some refreshments.");
-	                		}
-	                	}
-	                	
+                    	if (inventory.contains("hammer") && word2.equals("hammer")) {
+                    		System.out.println("You could hit the door with your hammer, but it doesn't seem like it would do anything to such a reinforced door");
+                    	}
+                    	if (inventory.contains("sledgehammer") && word2.equals("sledgehammer")) {
+                    		if(player.sandwichBuff) {
+                        		System.out.println("You swing your sledgehammer at the door with great force, tearing the door from it's hinges. The light flows in from the outside. You are finally free");
+                        		System.out.println("YOU WIN!");
+                        		System.exit(0);
+                    		}
+                    		else {
+                    			System.out.println("You lift your sledgehammer up to swing it, but you are tired and deprived of energy, and thus unable to swing. Maybe you should get some refreshments.");
+                    		}
+                    	}
+                    	
                 	}
+                	if(curRoom.equals("stariwell")) {
+                		if (inventory.contains("hammer") && word2.equals("hammer")) {
+                    		System.out.println("You knock the flimsy door down, revealing a set of stairs ");
+                    	}
+                    	if (inventory.contains("sledgehammer") && word2.equals("sledgehammer")) {
+                    		System.out.println("It seems like the sledgehammer has too much force for this door");
+                    	}
                 	break;
 	                		
                 case "examine":
@@ -148,12 +154,12 @@ public class MainGame {
     }
     
     static void unlockDoor() {
-    	if(inventory.contains("key")) {
+    	if(inventory.contains("key") && curRoom.equals("detention")) {
     		System.out.println("You turn the key, opening the door. The key breaks off as soon as you unlock it");
     		inventory.remove("key");
     		roomMap.get("detention").itemList.remove("key");
     		roomMap.get("detention").setDesc("Delinquent students are left for self reflection in this isolated space. The office is located to the east, behind an unlocked door");
-    		roomMap.get("detention").setExits("", "", "office", "");
+    		roomMap.get("detention").setExits("", "", "office", "","","");
     	}
     }
     
@@ -182,6 +188,9 @@ public class MainGame {
         r.itemList.remove(itemName);
         inventory.add(itemName);
         System.out.println("You take the " + itemName + " and shove it in your pocket");
+    }
+    
+    static void swingHammer() {
     }
 
     static void checkGameOver() {
