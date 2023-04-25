@@ -31,7 +31,7 @@ class Room {
             case 's': return s;
             case 'e': return e;
             case 'w': return w;
-            case 'u;: return u;
+            case 'u': return u;
             case 'd': return d;
         }
         return null;
@@ -88,5 +88,26 @@ class Room {
         room = new Room("Main Entrance", "You see the front lawn through the doors of the main foyer. Freedom is so close. Yet the doors are locked.\nA small dent can be seen near the hinge of the door");
         room.setExits("", "", "hallway2", "", "", "");
         map.put("entrance", room);
+
+        room = new Room("Second Floor", "You arrived at the second floor of the school, where all the learning takes place. You are surrounded by classrooms");
+        room.setExits("computer", "english", "chem", "math", "", "stairwell");
+        map.put("secondFloor", room);
+
+        room = new Room("English Classroom", "Posters of famous quotes cover the walls. Plenty of books are on a shelf collecting dust.");
+        room.setExits("secondFloor", "", "", "", "", "");
+        map.put("english", room);
+
+        room = new Room("Computer Room", "The computers have all been shut down, except one in front of the classroom. Perhaps only the monitor is off.");
+        room.setExits("", "secondFloor", "", "", "", "");
+        map.put("computer", room);
+        
+        room = new Room("Math Classroom", "Emptiest classroom in existence. A single equation is left on the whiteboard.");
+        room.setExits("", "", "secondFloor", "", "", "");
+        map.put("math", room);
+
+        room = new Room("Chemistry Lab", "You walk into chemistry lab, and the lab area is empty. Desks are neatly arranged with chairs placed on top. The window is open.");
+        room.setExits("", "", "", "secondFloor", "", "");
+        map.put("chem", room);
+
     }
 }

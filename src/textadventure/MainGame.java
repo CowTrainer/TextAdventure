@@ -58,13 +58,14 @@ public class MainGame {
                     	}
                     	
                 	}
-                	if(curRoom.equals("stariwell")) {
+                	if(curRoom.equals("stairwell")) {
                 		if (inventory.contains("hammer") && word2.equals("hammer")) {
                     		System.out.println("You knock the flimsy door down, revealing a set of stairs ");
                     	}
                     	if (inventory.contains("sledgehammer") && word2.equals("sledgehammer")) {
                     		System.out.println("It seems like the sledgehammer has too much force for this door");
                     	}
+                    }
                 	break;
 	                		
                 case "examine":
